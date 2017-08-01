@@ -3,10 +3,13 @@ var express = require('express');
 var app = express();
 
 app.use(express.static(__dirname + '/public'));
-app.use(express.static(__dirname + '/src/views'));
+app.set('views', './src/views');
+app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
-  res.render('index');
+  res.render('index', { list: ['better performance', 
+                               'prettier interface', 
+                               'cheaper price'] });
 });
 
 
