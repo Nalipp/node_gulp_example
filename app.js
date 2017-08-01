@@ -1,6 +1,15 @@
 var express = require('express');
 var app = express();
-var bookRouter = require('./src/routes/bookRoutes');
+
+var nav = [{
+      Link: '/Books',
+      Text: 'Books'
+    }, {
+      Link: '/Authors',
+      Text: 'Authors'
+    }]
+
+var bookRouter = require('./src/routes/bookRoutes')(nav);
 
 app.use('/Books', bookRouter);
 
@@ -10,14 +19,8 @@ app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
   res.render('index', {
+    nav: nav,
     title: 'My books',
-    nav: [{
-      Link: '/Books',
-      Text: 'Books'
-    }, {
-      Link: '/Authors',
-      Text: 'Authors'
-    }]
   });
 });
 
