@@ -16,6 +16,7 @@
     "gulp-jscs": "^4.0.0",
     "gulp-jshint": "^2.0.4",
     "jshint-stylish": "^2.2.1",
+    "mongodb": "^2.2.30",
     "pug": "^2.0.0-rc.2"
   },
   "devDependencies": {

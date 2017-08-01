@@ -7,11 +7,13 @@ var nav = [{
     }, {
       Link: '/Authors',
       Text: 'Authors'
-    }]
+    }];
 
 var bookRouter = require('./src/routes/bookRoutes')(nav);
+var adminRouter = require('./src/routes/adminRoutes')(nav);
 
 app.use('/Books', bookRouter);
+app.use('/Admin', adminRouter);
 
 app.use(express.static(__dirname + '/public'));
 app.set('views', './src/views');
